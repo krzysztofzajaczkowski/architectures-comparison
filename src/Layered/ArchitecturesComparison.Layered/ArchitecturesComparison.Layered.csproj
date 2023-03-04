@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ArchitecturesComparison.Layered.Business\ArchitecturesComparison.Layered.Business.csproj" />
+      <ProjectReference Include="..\ArchitecturesComparison.Layered.Persistence\ArchitecturesComparison.Layered.Persistence.csproj" />
+    </ItemGroup>
+
+</Project>
