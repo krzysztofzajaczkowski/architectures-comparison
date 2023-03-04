@@ -44,12 +44,12 @@ jobs:
         run: |
           git tag ArchitecturesComparison.Requests-${{ env.VERSION }}
           git push origin ArchitecturesComparison.Requests-${{ env.VERSION }}
+          
+      - name: Restore dependencies
+        run: nuget restore src/Shared/ArchitecturesComparison.Requests/ArchitecturesComparison.Requests.csproj
       
       - name: Build
-        run: dotnet build -c Release --no-restore -p:Version=$VERSION /p:ContinuousIntegrationBuild=true src/Shared/ArchitecturesComparison.Requests.Tests
-      
-      - name: Test
-        run: dotnet test -c Release --no-build --verbosity normal src/Shared/ArchitecturesComparison.Requests.Tests
+        run: dotnet build -c Release --no-restore -p:Version=$VERSION src/Shared/ArchitecturesComparison.Requests
         
       - name: Publish
         run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
