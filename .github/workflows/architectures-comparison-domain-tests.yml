@@ -1,0 +1,32 @@
+name: ArchitecturesComparison.Domain tests
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/architectures-comparison-domain-tests.yml'
+      - 'src/Shared/ArchitecturesComparison.Domain.Tests/**'
+      - 'src/Shared/ArchitecturesComparison.Domain/**'
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set environment variables
+        uses: ./.github/actions/set-env   
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          
+      - name: Restore dependencies
+        run: dotnet restore src/Shared/ArchitecturesComparison.Domain.Tests
+      
+      - name: Build
+        run: dotnet build -c Release --no-restore /p:ContinuousIntegrationBuild=true src/Shared/ArchitecturesComparison.Domain.Tests
+      
+      - name: Test
+        run: dotnet test -c Release --no-build --verbosity normal src/Shared/ArchitecturesComparison.Domain.Tests
+      
