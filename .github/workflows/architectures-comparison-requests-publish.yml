@@ -2,13 +2,13 @@ name: Publish ArchitecturesComparison.Requests package
 
 on:
   pull_request:
-    # branches:
-      # - develop
+    branches:
+      - develop
     paths:
       - '.github/workflows/architectures-comparison-requests-publish.yml'
       - 'src/Shared/ArchitecturesComparison.Requests.Tests/**'
       - 'src/Shared/ArchitecturesComparison.Requests/**'
-    # types: [closed]
+    types: [closed]
       
 jobs:
   publish:
