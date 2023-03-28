@@ -2,12 +2,12 @@ name: Publish ArchitecturesComparison.Domain package
 
 on:
   pull_request:
-    # branches:
-      # - develop
+    branches:
+      - develop
     paths:
       - '.github/workflows/architectures-comparison-domain-publish.yml'
       - 'Shared/src/ArchitecturesComparison.Domain/**'
-    # types: [closed]
+    types: [closed]
       
 jobs:
   publish:
