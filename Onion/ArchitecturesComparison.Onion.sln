@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C8016778-8522-4E7F-92FB-33353DA6E6A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AB694609-937A-4D44-860C-C66331E34788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturesComparison.Onion.Application", "src\ArchitecturesComparison.Onion.Application\ArchitecturesComparison.Onion.Application.csproj", "{306DA10E-08D9-4068-8AF3-03540354BDFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturesComparison.Onion.Tests", "tests\ArchitecturesComparison.Onion.Tests\ArchitecturesComparison.Onion.Tests.csproj", "{09657F8C-CCAB-4BC2-9179-C40E63EC2F4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{306DA10E-08D9-4068-8AF3-03540354BDFE} = {C8016778-8522-4E7F-92FB-33353DA6E6A1}
+		{09657F8C-CCAB-4BC2-9179-C40E63EC2F4A} = {AB694609-937A-4D44-860C-C66331E34788}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{306DA10E-08D9-4068-8AF3-03540354BDFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306DA10E-08D9-4068-8AF3-03540354BDFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306DA10E-08D9-4068-8AF3-03540354BDFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306DA10E-08D9-4068-8AF3-03540354BDFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09657F8C-CCAB-4BC2-9179-C40E63EC2F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09657F8C-CCAB-4BC2-9179-C40E63EC2F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09657F8C-CCAB-4BC2-9179-C40E63EC2F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09657F8C-CCAB-4BC2-9179-C40E63EC2F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,54 @@
+name: Publish ArchitecturesComparison.Requests package
+
+on:
+  pull_request:
+    # branches:
+      # - develop
+    paths:
+      - '.github/workflows/architectures-comparison-requests-publish.yml'
+      - 'Shared/src/ArchitecturesComparison.Requests/**'
+    # types: [closed]
+      
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set environment variables
+        uses: ./.github/actions/set-env
+        
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      
+      - name: Restore dependencies
+        run: dotnet restore Shared/src/ArchitecturesComparison.Requests
+      
+      - name: Get current date for version
+        uses: josStorer/get-current-time@v2.0.2
+        id: current-time
+        with:
+          format: YYYY.MM.DD
+          
+      - name: Create library version
+        run: |
+          echo "VERSION=$(echo ${{ steps.current-time.outputs.formattedTime }}.${{ github.run_number }})" >> $GITHUB_ENV
+          
+      - name: Create commit tag with library version
+        run: |
+          git tag ArchitecturesComparison.Requests-${{ env.VERSION }}
+          git push origin ArchitecturesComparison.Requests-${{ env.VERSION }}
+          
+      - name: Restore dependencies
+        run: nuget restore Shared/src/ArchitecturesComparison.Requests/ArchitecturesComparison.Requests.csproj
+      
+      - name: Build
+        run: dotnet build -c Release --no-restore -p:Version=$VERSION Shared/src/ArchitecturesComparison.Requests
+        
+      - name: Publish
+        run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
