@@ -15,8 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ArchitecturesComparison.Hexagonal.Application\ArchitecturesComparison.Hexagonal.Application.csproj" />
-      <ProjectReference Include="..\ArchitecturesComparison.Hexagonal\ArchitecturesComparison.Hexagonal.csproj" />
+      <ProjectReference Include="..\..\src\ArchitecturesComparison.Layered.Business\ArchitecturesComparison.Layered.Business.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,32 @@
+name: ArchitecturesComparison.Onion tests
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/architectures-comparison-onion-tests.yml'
+      - 'Onion/tests/ArchitecturesComparison.Onion.Tests/**'
+      - 'Onion/src/ArchitecturesComparison.Onion.Application/**'
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set environment variables
+        uses: ./.github/actions/set-env   
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          
+      - name: Restore dependencies
+        run: dotnet restore Onion/tests/ArchitecturesComparison.Onion.Tests
+      
+      - name: Build
+        run: dotnet build -c Release --no-restore /p:ContinuousIntegrationBuild=true Onion/tests/ArchitecturesComparison.Onion.Tests
+      
+      - name: Test
+        run: dotnet test -c Release --no-build --verbosity normal Onion/tests/ArchitecturesComparison.Onion.Tests
+      

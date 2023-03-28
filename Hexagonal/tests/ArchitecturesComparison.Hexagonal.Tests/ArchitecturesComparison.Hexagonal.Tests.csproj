@@ -15,9 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ArchitecturesComparison.Onion.Application\ArchitecturesComparison.Onion.Application.csproj" />
-      <ProjectReference Include="..\ArchitecturesComparison.Onion.Infrastructure\ArchitecturesComparison.Onion.Infrastructure.csproj" />
-      <ProjectReference Include="..\ArchitecturesComparison.Onion\ArchitecturesComparison.Onion.csproj" />
+      <ProjectReference Include="..\..\src\ArchitecturesComparison.Hexagonal.Application\ArchitecturesComparison.Hexagonal.Application.csproj" />
     </ItemGroup>
 
 </Project>

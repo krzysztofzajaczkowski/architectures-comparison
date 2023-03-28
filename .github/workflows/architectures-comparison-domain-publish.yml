@@ -2,13 +2,12 @@ name: Publish ArchitecturesComparison.Domain package
 
 on:
   pull_request:
-    branches:
-      - develop
+    # branches:
+      # - develop
     paths:
       - '.github/workflows/architectures-comparison-domain-publish.yml'
-      - 'src/Shared/ArchitecturesComparison.Domain.Tests/**'
-      - 'src/Shared/ArchitecturesComparison.Domain/**'
-    types: [closed]
+      - 'Shared/src/ArchitecturesComparison.Domain/**'
+    # types: [closed]
       
 jobs:
   publish:
@@ -28,7 +27,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
       
       - name: Restore dependencies
-        run: dotnet restore src/Shared/ArchitecturesComparison.Domain
+        run: dotnet restore Shared/src/ArchitecturesComparison.Domain
       
       - name: Get current date for version
         uses: josStorer/get-current-time@v2.0.2
@@ -46,13 +45,13 @@ jobs:
           git push origin ArchitecturesComparison.Domain-${{ env.VERSION }}
       
       - name: Restore dependencies
-        run: nuget restore src/Shared/ArchitecturesComparison.Domain/ArchitecturesComparison.Domain.csproj
+        run: nuget restore Shared/src/ArchitecturesComparison.Domain/ArchitecturesComparison.Domain.csproj
       
       - name: Build
-        run: dotnet build -c Release --no-restore -p:Version=$VERSION src/Shared/ArchitecturesComparison.Domain
+        run: dotnet build -c Release --no-restore -p:Version=$VERSION Shared/src/ArchitecturesComparison.Domain
       
       - name: Test
-        run: dotnet test -c Release --no-build --verbosity normal src/Shared/ArchitecturesComparison.Domain.Tests
+        run: dotnet test -c Release --no-build --verbosity normal Shared/tests/ArchitecturesComparison.Domain.Tests
         
       - name: Publish
         run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}

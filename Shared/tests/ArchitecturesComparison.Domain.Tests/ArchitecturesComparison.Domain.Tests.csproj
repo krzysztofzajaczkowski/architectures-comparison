@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ArchitecturesComparison.Domain\ArchitecturesComparison.Domain.csproj" />
+      <ProjectReference Include="..\..\src\ArchitecturesComparison.Domain\ArchitecturesComparison.Domain.csproj" />
     </ItemGroup>
 
 </Project>

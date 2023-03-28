@@ -4,8 +4,8 @@ on:
   pull_request:
     paths:
       - '.github/workflows/architectures-comparison-domain-tests.yml'
-      - 'src/Shared/ArchitecturesComparison.Domain.Tests/**'
-      - 'src/Shared/ArchitecturesComparison.Domain/**'
+      - 'Shared/tests/ArchitecturesComparison.Domain.Tests/**'
+      - 'Shared/src/ArchitecturesComparison.Domain/**'
       
 jobs:
   test:
@@ -22,11 +22,11 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
           
       - name: Restore dependencies
-        run: dotnet restore src/Shared/ArchitecturesComparison.Domain.Tests
+        run: dotnet restore Shared/tests/ArchitecturesComparison.Domain.Tests
       
       - name: Build
-        run: dotnet build -c Release --no-restore /p:ContinuousIntegrationBuild=true src/Shared/ArchitecturesComparison.Domain.Tests
+        run: dotnet build -c Release --no-restore /p:ContinuousIntegrationBuild=true Shared/tests/ArchitecturesComparison.Domain.Tests
       
       - name: Test
-        run: dotnet test -c Release --no-build --verbosity normal src/Shared/ArchitecturesComparison.Domain.Tests
+        run: dotnet test -c Release --no-build --verbosity normal Shared/tests/ArchitecturesComparison.Domain.Tests
       
