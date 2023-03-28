@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B4474940-8D69-484F-B018-7BCF03F4A3F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{270AB60C-2198-479E-9023-E3777BE95843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturesComparison.Layered.Business", "src\ArchitecturesComparison.Layered.Business\ArchitecturesComparison.Layered.Business.csproj", "{D6003415-DF01-4496-9E7D-BA10B131E55A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturesComparison.Layered.Tests", "tests\ArchitecturesComparison.Layered.Tests\ArchitecturesComparison.Layered.Tests.csproj", "{50C54947-9399-417A-85D2-A52D38B53966}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D6003415-DF01-4496-9E7D-BA10B131E55A} = {B4474940-8D69-484F-B018-7BCF03F4A3F5}
+		{50C54947-9399-417A-85D2-A52D38B53966} = {270AB60C-2198-479E-9023-E3777BE95843}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6003415-DF01-4496-9E7D-BA10B131E55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6003415-DF01-4496-9E7D-BA10B131E55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6003415-DF01-4496-9E7D-BA10B131E55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6003415-DF01-4496-9E7D-BA10B131E55A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C54947-9399-417A-85D2-A52D38B53966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C54947-9399-417A-85D2-A52D38B53966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C54947-9399-417A-85D2-A52D38B53966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C54947-9399-417A-85D2-A52D38B53966}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
