@@ -8,6 +8,11 @@
         <Authors>architectures-comparison</Authors>
         <Company>architectures-comparison</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CSharpFunctionalExtensions" Version="2.38.1" />
+    </ItemGroup>
 
 </Project>
