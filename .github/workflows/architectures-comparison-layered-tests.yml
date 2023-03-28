@@ -1,0 +1,32 @@
+name: ArchitecturesComparison.Layered tests
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/architectures-comparison-layered-tests.yml'
+      - 'Layered/tests/ArchitecturesComparison.Layered.Tests/**'
+      - 'Layered/src/ArchitecturesComparison.Layered.Business/**'
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set environment variables
+        uses: ./.github/actions/set-env   
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          
+      - name: Restore dependencies
+        run: dotnet restore Layered/tests/ArchitecturesComparison.Layered.Tests
+      
+      - name: Build
+        run: dotnet build -c Release --no-restore /p:ContinuousIntegrationBuild=true Layered/tests/ArchitecturesComparison.Layered.Tests
+      
+      - name: Test
+        run: dotnet test -c Release --no-build --verbosity normal Layered/tests/ArchitecturesComparison.Layered.Tests
+      
