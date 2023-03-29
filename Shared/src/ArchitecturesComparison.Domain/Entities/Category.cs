@@ -7,23 +7,26 @@ using ArchitecturesComparison.Domain.ValueObjects;
 
 namespace ArchitecturesComparison.Domain.Entities
 {
-    public class Category : IdentifiableEntity
+    public class Category : IIdentifiableEntity
     {
+        public Guid Id { get; }
         public Name Name { get; }
         public Description Description { get; }
 
         private readonly HashSet<Entry> _entries;
         public IReadOnlyCollection<Entry> Entries => _entries;
 
-        public Category(Name name, Description description) : base(Guid.NewGuid())
+        public Category(Name name, Description description)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Description = description;
             _entries = new HashSet<Entry>();
         }
         
-        public Category(Guid id, Name name, Description description) : base(id)
+        public Category(Guid id, Name name, Description description)
         {
+            Id = id;
             Name = name;
             Description = description;
             _entries = new HashSet<Entry>();

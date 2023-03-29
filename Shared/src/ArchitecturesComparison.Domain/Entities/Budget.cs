@@ -7,23 +7,26 @@ using ArchitecturesComparison.Domain.ValueObjects;
 
 namespace ArchitecturesComparison.Domain.Entities
 {
-    public class Budget : IdentifiableEntity
+    public class Budget : IIdentifiableEntity
     {
+        public Guid Id { get; }
         public Name Name { get; }
         public Description Description { get; }
 
         private readonly HashSet<Category> _categories;
         public IReadOnlyCollection<Category> Categories => _categories;
 
-        public Budget(Name name, Description description) : base(Guid.NewGuid())
+        public Budget(Name name, Description description)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Description = description;
             _categories = new HashSet<Category>();
         }
         
-        public Budget(Guid id, Name name, Description description) : base(id)
+        public Budget(Guid id, Name name, Description description)
         {
+            Id = id;
             Name = name;
             Description = description;
             _categories = new HashSet<Category>();
@@ -50,5 +53,6 @@ namespace ArchitecturesComparison.Domain.Entities
 
             _categories.Remove(category);
         }
+
     }
 }
