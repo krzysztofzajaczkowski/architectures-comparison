@@ -5,4 +5,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="ArchitecturesComparison.Domain" Version="2023.3.30.13" />
+      <PackageReference Include="ArchitecturesComparison.Requests" Version="2023.3.31.13" />
+      <PackageReference Include="MediatR" Version="12.0.1" />
+    </ItemGroup>
+
 </Project>
