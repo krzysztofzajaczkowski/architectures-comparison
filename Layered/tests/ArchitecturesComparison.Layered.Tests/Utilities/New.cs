@@ -7,7 +7,7 @@ namespace ArchitecturesComparison.Layered.Tests.Utilities;
 
 public static class New
 {
-    private static DateTime DefaultDateTime = new DateTime(2023, 03, 28, 21, 37, 00, DateTimeKind.Utc);
+    private static readonly DateTime DefaultDateTime = new DateTime(2023, 03, 28, 21, 37, 00, DateTimeKind.Utc);
 
     public static Name Name(string value = "name") => 
         Domain.ValueObjects.Name.From(value);
@@ -33,7 +33,14 @@ public static class New
         Description(description), UtcDateTime(),
         Transaction(type, amount));
 
+    public static Entry Entry(string name = "name", string description = "",
+        TransactionType type = TransactionType.Income, decimal amount = 0) =>
+        Entry(Guid.NewGuid(), name, description, type, amount);
+
     public static EntryDto EntryDto(Guid id, string name = "name", 
         string description = "", decimal balanceChange = 0) => 
         new(id, name, description, DefaultDateTime, TransactionDto(balanceChange));
+
+    public static AggregatedCategoryDto AggregatedCategoryDto(string name = "name", decimal balance = 0) =>
+        new(name, balance);
 }
