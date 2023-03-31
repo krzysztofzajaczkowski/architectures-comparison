@@ -1,0 +1,30 @@
+name: Build ArchitecturesComparison.Requests
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/architectures-comparison-requests-build.yml'
+      - 'Shared/src/ArchitecturesComparison.Requests/**'
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set environment variables
+        uses: ./.github/actions/set-env
+        
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      
+      - name: Restore dependencies
+        run: dotnet restore Shared/src/ArchitecturesComparison.Requests
+      
+      - name: Build
+        run: dotnet build -c Release --no-restore Shared/src/ArchitecturesComparison.Requests
