@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using ArchitecturesComparison.Domain.Entities;
 
-namespace ArchitecturesComparison.Layered.Business.Common
+namespace ArchitecturesComparison.Layered.DataAccess.Common
 {
     public interface IBudgetRepository
     {

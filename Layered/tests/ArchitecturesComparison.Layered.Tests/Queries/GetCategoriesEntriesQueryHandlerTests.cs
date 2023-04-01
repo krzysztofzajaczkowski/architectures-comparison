@@ -1,6 +1,6 @@
 ﻿using ArchitecturesComparison.Domain.Entities;
-using ArchitecturesComparison.Layered.Business.Common;
 using ArchitecturesComparison.Layered.Business.Queries;
+using ArchitecturesComparison.Layered.DataAccess.Common;
 using ArchitecturesComparison.Layered.Tests.Utilities;
 using ArchitecturesComparison.Requests.DTOs;
 using ArchitecturesComparison.Requests.Queries;
