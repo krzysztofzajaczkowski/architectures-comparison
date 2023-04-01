@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ArchitecturesComparison.Layered.Business.Common;
+using ArchitecturesComparison.Layered.DataAccess.Common;
 using ArchitecturesComparison.Requests.DTOs;
 using ArchitecturesComparison.Requests.Queries;
 using MediatR;

@@ -11,4 +11,8 @@
       <PackageReference Include="MediatR" Version="12.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ArchitecturesComparison.Layered.DataAccess\ArchitecturesComparison.Layered.DataAccess.csproj" />
+    </ItemGroup>
+
 </Project>
