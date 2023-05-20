@@ -5,4 +5,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="ArchitecturesComparison.Domain" Version="2023.3.30.13" />
+      <PackageReference Include="ArchitecturesComparison.Requests" Version="2023.5.20.15" />
+    </ItemGroup>
+
 </Project>
